@@ -6,7 +6,38 @@
 #include "limits.h"
 #include <stdio.h>
 #include<string.h>
+
 #define INIT_NODE {0, NULL, NULL, NULL}
+#define CONVERT "0123456789ABCDEF"
+
+#define SETUP_NODE_BLOC { \
+	temp = *root; \
+	size = binary_tree_size(*root); \
+	binary = &buffer[49]; \
+	*binary = 0; \
+	}
+
+#define FREE_NODE_BLOC { \
+		res = temp->n; \
+		free(temp); \
+		*root = NULL; \
+	}
+
+#define SWAP_HEAD_BLOC { \
+		head = *root; \
+		head = swap_head(head, temp); \
+		res = head->n; \
+		free(head); \
+		*root = temp; \
+		temp = perc_down(temp); \
+		*root = temp; \
+	}
+
+#define CONVERT_LOOP { \
+		*--binary = CONVERT[size % 2]; \
+		size /= 2; \
+	}
+
 
 /**
  * struct binary_tree_s - Binary tree node
