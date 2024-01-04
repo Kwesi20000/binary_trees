@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include "limits.h"
 #include <stdio.h>
+#include<string.h>
+#define INIT_NODE {0, NULL, NULL, NULL}
 
 /**
  * struct binary_tree_s - Binary tree node
